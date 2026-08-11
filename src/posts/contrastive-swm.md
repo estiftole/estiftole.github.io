@@ -26,7 +26,7 @@ Similarily, the latent representation of the state can be expressed as:
 $$z_t = \{z_t^{(1)}, z_t^{(2)}, \dots, z_t^{(K)}\}$$
 
 ## C-SWM Architecture
-Here's my simplified diagram of the C-SWM architecture:  
+Here's a simplified diagram of the C-SWM architecture:  
 
 <img src="{{ '/assets/images/post-images/c-swm simplified.png' | url }}" alt="c-swm simplified">
 
