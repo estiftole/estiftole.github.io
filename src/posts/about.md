@@ -5,6 +5,7 @@ date: 2026-07-27
 author: E Tolemariam
 description: "This site serves as a platform for presenting and testing novel ideas, reviewing interesting papers, and debating paths toward the most beneficial scenario for our future with AI."    
 ---
+## Impact
 
 Whether or not current technologies alone are sufficient to produce artificial general intelligence, its eventual emergence will inarguably profoundly reshape society. Thus, it is essential that it is developed with the full spectrum of life and humanity in mind, and that its power is not concentrated in the hands of a few. 
 
