@@ -28,7 +28,7 @@ $$z_t = \{z_t^{(1)}, z_t^{(2)}, \dots, z_t^{(K)}\}$$
 ## C-SWM Architecture
 Here's my simplified diagram of the C-SWM architecture:  
 
-<img src="{{ '/assets/images/post-images/c-swm simplified.png/' | url }}" alt="c-swm simplified">
+<img src="{{ '/assets/images/post-images/c-swm simplified.png' | url }}" alt="c-swm simplified">
 
 The state $s_t$ is passed through an encoder module that returns an abstract state representation $z_t^k$ for each object. 
 
@@ -85,7 +85,7 @@ This loss function teaches the model to do three things:
 
  A more complete representation of the C-SWM architecture is in this image (stolen from the paper):
  
- <img src="{{ '/assets/images/post-images/c-swm architecture.jpg/' | url }}" alt="c-swm architecture">
+ <img src="{{ '/assets/images/post-images/c-swm architecture.jpg' | url }}" alt="c-swm architecture">
 
 ## Implementation
 The authors published the <a class="reference" href="https://github.com/tkipf/c-swm">code of their implementation</a> along with their paper. Unfortunately, their implementation relies on now out-dated packages and functions (such as the `gym` package which is now `gymnasium`, with the atari games being branched off in another package `ale-py`), so I had to do some refactoring to get it to run in the modern ecosystem. 
@@ -102,11 +102,11 @@ Compared to approaches that rely on a pixel-level reconstruction loss (AE/VAE) a
 
 Table taken from paper:
 
-<img src="{{ '/assets/images/post-images/table1.jpeg/' | url }}" alt="authors' table">
+<img src="{{ '/assets/images/post-images/table1.jpeg' | url }}" alt="authors' table">
 
 For my evaluations, I compared the C-SWM to a version of the model that was trained on reconstruction loss with a decoder. Performance was compared on two Atari games (Breakout and Centipede). 
 
-<img src="{{ '/assets/images/post-images/table2.jpeg/' | url }}" alt="my table">
+<img src="{{ '/assets/images/post-images/table2.jpeg' | url }}" alt="my table">
 
 Results mimic that of the original paper, with the C-SWM model performing better than the reconstruction-based version.
 
