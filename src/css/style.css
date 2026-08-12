@@ -81,7 +81,6 @@ body, nav, post-sidebar {
   font-size: 15px;
   font-weight: 500;
   width: 100%;
-  padding: 5px 5px;
   display: flex;
   justify-content: center;
   background-color: var(--bg-color);
@@ -172,6 +171,7 @@ body, nav, post-sidebar {
   color: inherit;
   cursor: pointer;
   width: fit-content;
+  padding: 2px 0px;
   padding-right: 20px;
 }
 
