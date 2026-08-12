@@ -84,7 +84,7 @@ body, nav, post-sidebar {
   display: flex;
   justify-content: center;
   background-color: var(--bg-color);
-  /*border-bottom: var(--border-width) solid var(--border-color);*/
+  border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .links {
