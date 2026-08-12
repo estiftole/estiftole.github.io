@@ -171,14 +171,13 @@ body, nav, post-sidebar {
   color: inherit;
   cursor: pointer;
   width: fit-content;
-  padding: 2px 0px;
-  padding-right: 20px;
+  padding: 2px 10px;
 }
 
 .btn:hover {
   white-space: nowrap;
-  color: #F4F4F4;
-  background-color: blue;
+  color: var(--bg-color);
+  background-color: var(--text-color);
 }
 
 button {

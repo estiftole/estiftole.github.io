@@ -62,8 +62,8 @@ th {
 }
 
 .toc a:hover {
-  color: white;
-  background-color: blue;
+    color: var(--bg-color);
+    background-color: var(--text-color);
 }
 
 html {
@@ -101,7 +101,7 @@ html {
   text-align: right;
   text-transform: uppercase;
   text-decoration: none;
-  padding-right: 20px;
+  padding: 0px 2px;
 }
 
 .toc-link::before {
