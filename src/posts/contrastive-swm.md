@@ -1,7 +1,7 @@
 ---
 layout: post.njk
 title: "Contrastive Learning of Structured World Models"
-date: 2026-08-05
+date: 2026-08-11
 author: E Tolemariam
 description: 'Analysis of the paper titled "Contrastive Learning of Structured World Models" and the C-SWM architecture it introduced as a method for learning abstract state representations from observations alone.'    
 ---
