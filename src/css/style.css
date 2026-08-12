@@ -9,6 +9,7 @@
   --text-color: #222222;
   --muted-text: #222222B3;
   --border-color: #dedede;
+  /*--border-color: #e3e3e3;*/
 
 
   --accent-color: #3B5CFF;
@@ -22,7 +23,7 @@
 
   --max-width: 720px;
   --font-family: system-ui, -apple-system, sans-serif;
-  --border-width: 2px;
+  --border-width: 1px;
 }
 
 
@@ -85,6 +86,7 @@ body, nav, post-sidebar {
   justify-content: center;
   background-color: var(--bg-color);
   border-bottom: var(--border-width) solid var(--border-color);
+  /*border-bottom: 1px solid var(--border-color);*/
 }
 
 .links {

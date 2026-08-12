@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!toggleBtn) return;
 
   function updateButtonText(theme) {
-    toggleBtn.textContent = theme === 'dark' ? '/ LIGHT' : '/ DARK';
+    toggleBtn.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
   }
 
   const currentTheme = document.documentElement.getAttribute('data-theme');
