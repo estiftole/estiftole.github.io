@@ -77,6 +77,7 @@ body, nav, post-sidebar {
 .site-nav {
   position: sticky;
   top: 0;
+  /*top: 20px;*/
   z-index: 1000;
   font-size: 15px;
   font-weight: 500;
@@ -84,15 +85,20 @@ body, nav, post-sidebar {
   display: flex;
   justify-content: center;
   background-color: var(--bg-color);
-  border-bottom: var(--border-width) solid var(--border-color);
+  padding-top: 20px;
   /*border-bottom: 1px solid var(--border-color);*/
 }
 
 .links {
   display: flex;
-  width: 85%;
+  width: 100%;
   justify-content: space-between;
   text-wrap: nowrap;
+  /*margin-top: 20px;*/
+  border-top: var(--border-width) solid var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
+  padding: 0px 7.5%;
+
 }
 
 .container {
@@ -397,8 +403,11 @@ h1 {
         width: 100%;
     }
 
-    .posts-section, .subheader-big, .links, .hero, .subheader {
+    .posts-section, .subheader-big, .hero, .subheader {
         width: 90%;
+    }
+    .links {
+        padding: 0px 5%;
     }
 }
 
