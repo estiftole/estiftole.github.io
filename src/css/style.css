@@ -230,7 +230,7 @@ body, nav, post-sidebar {
   border: none;
   font: inherit;
   white-space: nowrap;
-  /*color: var(--bg-color);*/
+  color: var(--muted-text);
   /*background-color: var(--text-color);*/
   width: fit-content;
   border-left: 1px solid var(--code-bg);
