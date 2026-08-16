@@ -1,38 +1,36 @@
 ---
 layout: base.njk
-title: "Home"
+title: "Write-ups"
+author: E Tolemariam
 ---
+
 <div class="hero-container">
-<section class="hero top-head">
 
-    <h1 class="header zero-margin inter">
-        Write-ups on <br>machine learning
-    </h1>
-    <div class="cta-section open-sans">
-        <a href="{{ '/posts/' | url }}" class="zero-margin btn">ALL POSTS </a>
-        <a href="{{ '/posts/about/' | url }}" class="zero-margin btn">ABOUT THIS SITE </a>
-    </div>
-</section>
+<header class="mainpost-header top-head">
+    <h1 class="zero-margin inter">WRITE-UPS</h1>
+    <!--<div class="post-author open-sans">
+        <a>{{ author }}</a>
+    </div>-->
+</header>
 </div>
+<section class="posts-section">
 
-<p class="zero-margin subheader inter">LATEST POSTS</p>
-<section class="posts-section open-sans">
-  <div class="post-grid">
-      {% for post in (collections.posts | reverse).slice(0, 3) %}
-        <article class="post-card">
-            <h3 class="zero-margin"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+  <div class="post-grid open-sans">
+      {% for post in (collections.posts | reverse)%}
+      <article class="post-card">
+          <h3 class="zero-margin"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
 
-            <p class="zero-margin post-by">
-                <time>{{ post.date | numericDate }}</time>
-                <a>{{ post.data.author }}</a>
-            </p>
+          <p class="zero-margin post-by">
+              <time>{{ post.date | numericDate }}</time>
+              <a>{{ post.data.author }}</a>
+          </p>
 
 
-            <div class="post-info">
-                <p class="zero-margin post-desc">{{ post.data.description }}</p>
-                <p class="zero-margin post-link"><a href="{{ post.url | url }}" class="btn">READ POST </a></p>
-            </div>
-        </article>
+          <div class="post-info">
+              <p class="zero-margin post-desc">{{ post.data.description }}</p>
+              <p class="zero-margin post-link"><a href="{{ post.url | url }}" class="btn">READ POST </a></p>
+          </div>
+      </article>
       {% endfor %}
   </div>
 </section>
