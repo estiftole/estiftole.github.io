@@ -23,7 +23,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(katex));
 
   return {
-    // pathPrefix: "/paper-review/",
+    pathPrefix: "/",
     dir: {
       // Tell Eleventy to prefix all URLs with your repo name
       input: "src",
