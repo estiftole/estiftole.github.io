@@ -1,20 +1,9 @@
 ---
 layout: base.njk
-title: "Write-ups"
-author: E Tolemariam
+title: "Projects and Write-ups"
 ---
 
-<div class="hero-container">
-
-<header class="mainpost-header top-head">
-    <h1 class="zero-margin inter">Projects and Write-ups</h1>
-    <!--<div class="post-author open-sans">
-        <a>{{ author }}</a>
-    </div>-->
-</header>
-</div>
 <section class="posts-section">
-
   <div class="post-grid open-sans">
       {% for post in (collections.posts | reverse)%}
       <article class="post-card">
@@ -24,7 +13,6 @@ author: E Tolemariam
               <time>{{ post.date | numericDate }}</time>
               <a>{{ post.data.author }}</a>
           </p>
-
 
           <div class="post-info">
               <p class="zero-margin post-desc">{{ post.data.description }}</p>

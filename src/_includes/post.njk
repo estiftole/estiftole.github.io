@@ -1,36 +1,18 @@
 ---
 layout: base.njk
 ---
-<div class="hero-container">
 
-<header class="mainpost-header top-head">
-    <h1 class="zero-margin inter">{{ title }}</h1>
-    <div class="post-author open-sans">
-        <time>{{ date | numericDate }}</time>
-        <a>{{ author }}</a>
-    </div>
-</header>
-</div>
 <article class="post">
-
-
-    <!-- New two-column layout wrapper -->
     <div class="post-layout open-sans" zero-margin>
-
-        <!-- Sidebar Menu -->
         <aside class="post-sidebar">
             <nav class="toc" id="toc-nav" />
         </aside>
-
-        <!-- Post Content -->
         <div class="post-body open-sans">
             {{ content | safe }}
         </div>
-
     </div>
 </article>
 
-<!-- Minimal JS to generate the menu -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const body = document.querySelector('.post-body');

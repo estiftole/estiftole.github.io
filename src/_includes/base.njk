@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Preconnect handles faster handshake connections -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,22 +9,29 @@
   <link rel="icon" href="{{ '/assets/images/icons/favicon.svg' | url }}" type="image/svg+xml" sizes="any">
   <title>{{ title }} | E Tolemariam </title>
 
-
   <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script src="{{ '/js/consistent-theme.js' | url }}"></script>
 </head>
 
-<!--<body>-->
 <body>
   {% include "nav.njk" %}
   {% include "footer.njk" %}
   <main class="container inter-regular">
-    {# The child layout or markdown content gets injected here #}
+    <div class="hero-container">
+        <header class="mainpost-header top-head">
+            <h1 class="zero-margin inter">{{ title }}</h1>
+            {% if date %}
+            <div class="post-author open-sans">
+                <time>{{ date | numericDate }}</time>
+                <a>{{ author }}</a>
+            </div>
+            {% endif %}
+        </header>
+    </div>
     {{ content | safe }}
   </main>
   <script src="{{ '/js/toggle-theme.js' | url }}"></script>
-
-
 </body>
+
 </html>
