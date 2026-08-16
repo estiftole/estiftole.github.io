@@ -73,7 +73,7 @@ html {
 .post-layout {
   display: grid;
   grid-template-columns: 300px 1fr;
-  margin-top: 40px;
+  padding-top: var(--special-padding);
   gap: 40px;
   width: 85%;
   align-items: start;
