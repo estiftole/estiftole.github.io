@@ -21,12 +21,14 @@
     <div class="hero-container">
         <header class="mainpost-header top-head">
             <h1 class="zero-margin inter">{{ title }}</h1>
-            {% if date %}
             <div class="post-author open-sans">
+                {% if date %}
                 <time>{{ date | numericDate }}</time>
-                <a>{{ author }}</a>
+                {% endif %}
+                {% if code %}
+                    <a href={{code}} class="casual-btn">CODE</a>
+                {% endif %}
             </div>
-            {% endif %}
         </header>
     </div>
     {{ content | safe }}
