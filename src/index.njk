@@ -14,7 +14,11 @@ title: "Projects and Write-ups"
           </p>
 
           <div class="post-info">
+              {% if post.data.description %}
               <p class="zero-margin post-desc">{{ post.data.description }}</p>
+              {% else %}
+              <p class="zero-margin post-desc">{{ post.data.title }}</p>
+              {% endif %}
               <div class="card-cta">
               <p class="zero-margin post-link"><a href="{{ post.url | url }}" class="casual-btn">READ POST</a></p>
               {% if post.data.code %}
