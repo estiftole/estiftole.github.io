@@ -219,8 +219,9 @@ body, nav, post-sidebar {
 
 .btn:hover {
   white-space: nowrap;
-  color: var(--bg-color);
-  background-color: var(--text-color);
+  /*color: var(--bg-color);*/
+  /*background-color: var(--text-color);*/
+  text-decoration: underline;
 }
 
 .perma-highlight {
