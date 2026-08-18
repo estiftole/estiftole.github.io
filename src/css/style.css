@@ -258,14 +258,14 @@ button {
 }
 
 img {
-  object-fit: contain; /* Keeps ratio, fills box, cuts off edges */
+  object-fit: cover;
 }
 
 .banner {
     display: flex;
     min-width: 50%;
     max-width: 50%;
-    max-height: 35vh;
+    height: 35vh;
     background-color: var(--muted-bg);
 }
 
@@ -441,7 +441,6 @@ h1 {
     .banner {
         min-width: 100%;
         max-width: 100%;
-        max-height: 35vh;
     }
     .post-card {
         display: flex;
