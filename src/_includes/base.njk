@@ -20,17 +20,21 @@
   <main class="container inter-regular">
     <div class="hero-container">
         <header class="mainpost-header top-head">
-            <h1 class="zero-margin inter">{{ title }}</h1>
+            <h1 class="zero-margin inter upper-text">{{ title }}</h1>
             <div class="post-author open-sans">
                 {% if date %}
                 <time>{{ date | numericDate }}</time>
                 {% endif %}
                 {% if code %}
-                    <a href={{code}} class="casual-btn">CODE</a>
+                    <a href={{code}} class="casual-btn upper-text">Code</a>
+                {% endif %}
+                {% if minitext %}
+                    <a>{{minitext}}</a>
                 {% endif %}
             </div>
         </header>
     </div>
+
     {{ content | safe }}
   </main>
   <script src="{{ '/js/toggle-theme.js' | url }}"></script>

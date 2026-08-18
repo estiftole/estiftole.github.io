@@ -25,6 +25,7 @@
   --font-family: system-ui, -apple-system, sans-serif;
   --border-width: 1px;
   --special-padding: 30px;
+  --display-width: 80%;
 }
 
 
@@ -122,7 +123,7 @@ body, nav, post-sidebar {
   /*border-top: var(--border-width) solid var(--border-color);*/
   /*border-bottom: var(--border-width) solid var(--border-color);*/
 
-  padding: 0px 7.5%;
+  padding: 0px calc(50% - var(--display-width)/2);
 
 }
 
@@ -134,7 +135,7 @@ body, nav, post-sidebar {
   /*margin-top: 20px;*/
   border-top: var(--border-width) solid var(--border-color);
   border-bottom: var(--border-width) solid var(--border-color);
-  padding: 0px 7.5%;
+  padding: 0px calc(50% - var(--display-width)/2);
 
 }
 
@@ -153,7 +154,7 @@ body, nav, post-sidebar {
 }
 
 .hero {
-  width: 85%;
+  width: var(--display-width);
   text-align: center;
   display: flex;
   justify-content: space-between;
@@ -165,9 +166,8 @@ body, nav, post-sidebar {
 
 .header {
     text-align: left;
-    text-transform: uppercase;
   font-weight: 400;
-  width: 70%;
+  width: var(--display-width);
 }
 
 .cta-section {
@@ -183,8 +183,7 @@ body, nav, post-sidebar {
     font-size: 25px;
     padding-top: 40px;
     font-weight: 500;
-    width: 85%;
-    text-transform: uppercase;
+    width: var(--display-width);
 }
 
 .mini-text {
@@ -269,7 +268,7 @@ button {
   padding: var(--special-padding) 0px;
   padding-bottom: 100px;
   gap: 30px;
-  width: 85%;
+  width: var(--display-width);
 }
 
 .post-grid {
@@ -277,28 +276,42 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 60px;
+}
+
+.banner {
+    width: 50%;
+}
+.card-parent {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    /*align-items: end;*/
 }
 
 .post-card {
-  display: grid;
+  /*display: grid;*/
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  grid-template-columns: 300px max-content 1fr;
-  justify-content: space-between;
-  gap: 40px;
+  /*grid-template-columns: 300px max-content 1fr;*/
+  gap: 5px;
   align-items: start;
+  padding: 10px 0;
 }
 
 .post-info {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  /*justify-content: space-between;*/
+  font-weight: 400;
+  gap: 10px;
+  height: 100%;
 }
 
 .post-card h3 {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 500;
-  text-transform: uppercase;
   padding: 0;
 }
 
@@ -319,18 +332,20 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    text-transform: uppercase;
   font-weight: 400;
   white-space: nowrap;
+  padding-bottom: 20px;
 }
 
 .post-desc {
-    font-size: 18px;
-    font-weight: 400;
+    /*font-size: 17px;*/
+    font-size: 17px;
+    /*font-weight: 300;*/
 }
 
 .post-link {
     font-weight: 500;
+
 }
 
 .post {
@@ -420,12 +435,13 @@ h1 {
 
 .subheader-big {
     font-weight: 500;
-    width: 85%;
-    text-transform: uppercase;
+    width: var(--display-width);
 }
 
 @media (max-width: 846px) {
-
+    :root {
+    --display-width: 90%;
+    }
     .header {
         width: 100%;
     }
@@ -438,10 +454,16 @@ h1 {
         flex-direction: column;
     }
 
+    .card-parent {
+        flex-direction: column;/*gap: 30px;*/
+    }
+    .banner {
+        width: 100%;
+    }
     .post-card {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        /*gap: 16px;*/
         }
 
     .post-card > h3 {
@@ -450,7 +472,7 @@ h1 {
 
     .post-by {
         flex-direction: row;
-        gap: 20px;
+        /*gap: 20px;*/
     }
 
 
@@ -466,11 +488,8 @@ h1 {
         width: 100%;
     }
 
-    .posts-section, .subheader-big, .hero, .subheader {
-        width: 90%;
-    }
     .links, .footer-links {
-        padding: 0px 5%;
+        padding: 0px calc(50% - var(--display-width)/2);
     }
 }
 

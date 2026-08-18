@@ -21,9 +21,12 @@ th {
     gap: 4px;
     padding-top: 20vh;
     padding-bottom: var(--special-padding);
-    text-transform: uppercase;
-    width: 85%;
+    width: var(--display-width);
 
+}
+
+.upper-text {
+    text-transform: uppercase;
 }
 
 .mainpost-header > h1 {
@@ -31,6 +34,7 @@ th {
 }
 
 .post-author {
+    font-size: 17px;
     display: flex;
     gap: 60px;
 }
@@ -75,14 +79,13 @@ html {
   grid-template-columns: 300px 1fr;
   padding-top: var(--special-padding);
   gap: 40px;
-  width: 85%;
+  width: var(--display-width);
   align-items: start;
 }
 
 .post-sidebar {
   position: sticky;
   top: 40px;
-  text-transform: uppercase;
   font-weight: 400;
 }
 
@@ -99,7 +102,6 @@ html {
   justify-content: space-between;
   align-items: flex-start;
   text-align: right;
-  text-transform: uppercase;
   text-decoration: none;
   padding: 0px 2px;
 }
@@ -157,6 +159,6 @@ blockquote > :first-child {
   }
 
   .mainpost-header, .post-layout {
-      width: 90%;
+      width: var(--display-width);
   }
 }

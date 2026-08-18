@@ -1,13 +1,18 @@
 ---
 layout: base.njk
 title: "Projects and Write-ups"
+# minitext: Latest on what I've been working on
 ---
 
-<section class="posts-section">
+<section class="posts-section open-sans">
   <div class="post-grid open-sans">
       {% for post in (collections.posts | reverse)%}
+      <div class="card-parent">
+    {% if post.data.banner %}
+    <img src="{{ post.data.banner | url }}" class="banner" alt="c-swm simplified">
+    {% endif %}
       <article class="post-card">
-          <h3 class="zero-margin casual-btn"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+          <h3 class="zero-margin casual-btn upper-text"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
 
           <p class="zero-margin post-by">
               <time>{{ post.date | numericDate }}</time>
@@ -20,13 +25,16 @@ title: "Projects and Write-ups"
               <p class="zero-margin post-desc">{{ post.data.title }}</p>
               {% endif %}
               <div class="card-cta">
-              <p class="zero-margin post-link"><a href="{{ post.url | url }}" class="casual-btn">READ POST</a></p>
+              <p class="zero-margin post-link"><a href="{{ post.url | url }}" class="casual-btn upper-text">Read More</a></p>
               {% if post.data.code %}
-              <p class="zero-margin post-link"><a href="{{ post.data.code }}" class="casual-btn">CODE</a></p>
+              <p class="zero-margin post-link"><a href="{{ post.data.code }}" class="casual-btn upper-text">Code</a></p>
               {% endif %}
               </div>
           </div>
       </article>
+
+
+      </div>
       {% endfor %}
   </div>
 </section>
