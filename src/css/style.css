@@ -483,10 +483,10 @@ h1 {
     .post-grid {
         gap: 50px;
     }
-
+/*
     .top-head {
-        padding-top: 20vh;
-    }
+        padding-top: 10vh;
+    }*/
 
     .site-nav {
         width: 100%;
