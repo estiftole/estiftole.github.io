@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: "Projects and Write-ups"
+description: Things I've been working on.
 ---
 
 <section class="posts-section open-sans">
@@ -9,7 +10,14 @@ title: "Projects and Write-ups"
         {% for post in (collections.posts | reverse)%}
         <div class="card-parent">
             {% if post.data.banner %}
+              {% if post.data.banner.endsWith('.mp4') %}
+                <video class="vid-banner" autoplay loop muted playsinline width="100%">
+                  <source src="{{ post.data.banner | url }}">
+                  Your browser does not support video playback.
+                </video>
+              {% else %}
                 <img src="{{ post.data.banner | url }}" class="banner" alt="c-swm simplified">
+              {% endif %}
             {% endif %}
       <article class="post-card">
             <h3 class="zero-margin casual-btn upper-text"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
@@ -18,9 +26,9 @@ title: "Projects and Write-ups"
             </p>
             <div class="post-info">
                 {% if post.data.description %}
-                    <p class="zero-margin post-desc">{{ post.data.description }}</p>
+                    <p class="zero-margin post-desc mute">{{ post.data.description }}</p>
                 {% else %}
-                    <p class="zero-margin post-desc">{{ post.data.title }}</p>
+                    <p class="zero-margin post-desc mute">{{ post.data.title }}</p>
                 {% endif %}
                 <div class="card-cta">
                     <p class="zero-margin post-link"><a href="{{ post.url | url }}" class="casual-btn upper-text">Read More</a></p>

@@ -26,13 +26,16 @@
   --border-width: 1px;
   --special-padding: 30px;
   --display-width: 80%;
+
+  --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+  --scrollbar-track: transparent;
 }
 
 
 [data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #E4E4E4;
-  --muted-text: #E4E4E4B3;
+  --muted-text: #C7C7C7;
   --muted-bg: #1C1C1C;
   --border-color: #333333;
 
@@ -42,6 +45,14 @@
   --code-bg: #292929;
   --code-text: #E4E4E4;
   --code-border: #202020;
+
+  --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  --scrollbar-track: transparent;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 * {
@@ -85,10 +96,8 @@ body, nav, post-sidebar {
 .site-nav {
   position: sticky;
   top: 0;
-  /*top: 20px;*/
   z-index: 1000;
   font-size: 15px;
-  font-weight: 500;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -228,7 +237,7 @@ body, nav, post-sidebar {
 
 button {
     all: unset;
-    cursor: pointer; /* Ensure the pointer still shows up */
+    cursor: pointer;
 }
 
 .reference {
@@ -249,6 +258,10 @@ button {
   width: var(--display-width);
 }
 
+.mute {
+    color: var(--muted-text);
+}
+
 .post-grid {
     display: flex;
     flex-direction: column;
@@ -257,15 +270,20 @@ button {
     gap: 60px;
 }
 
-img {
-  object-fit: cover;
-}
-
 .banner {
     display: flex;
     min-width: 50%;
     max-width: 50%;
     height: 35vh;
+    opacity: 0.8;
+}
+
+.vid-banner {
+    display: flex;
+    min-width: 50%;
+    max-width: 50%;
+    height: 35vh;
+    opacity: 0.8;
     background-color: var(--muted-bg);
 }
 
@@ -401,13 +419,17 @@ p .katex-display .katex {
   margin-bottom: 0;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+img, video {
+  width: 100%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
 }
 
+.cropped-height {
+    max-height: 50vh;
+}
 .top-head {
-    padding-top: 25vh;
+    padding-top: 15vh;
 }
 
 h1 {
@@ -436,11 +458,13 @@ h1 {
     }
 
     .card-parent {
-        flex-direction: column;/*gap: 30px;*/
+        flex-direction: column;
+        gap: 20px;
     }
-    .banner {
+    .banner, .vid-banner {
         min-width: 100%;
         max-width: 100%;
+
     }
     .post-card {
         display: flex;
@@ -475,10 +499,11 @@ h1 {
 
 .katex-display,
 .post-body {
-  scrollbar-color: rgba(255, 255, 255, 0.2) transparent; /* [thumb] [track] */
-  scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    scrollbar-width: thin;
 }
 
 .home-content {
-    font-size: 20px;
+    color: var(--muted-text);
+    padding-bottom: 8px;
 }

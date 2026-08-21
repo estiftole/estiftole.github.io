@@ -21,6 +21,9 @@
     <div class="hero-container">
         <header class="mainpost-header top-head">
             <h1 class="zero-margin inter upper-text">{{ title }}</h1>
+            {% if description %}
+            <div class="post-desc home-content inter">{{ description }}</div>
+            {% endif %}
             <div class="post-author open-sans">
                 {% if date %}
                 <time>{{ date | numericDate }}</time>

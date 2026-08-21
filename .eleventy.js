@@ -25,7 +25,6 @@ module.exports = function(eleventyConfig) {
   return {
     pathPrefix: "/",
     dir: {
-      // Tell Eleventy to prefix all URLs with your repo name
       input: "src",
       output: "_site"
     }

@@ -2,7 +2,7 @@
 layout: post.njk
 title: "Contrastive Learning of Structured World Models"
 date: 2026-08-11
-description: 'Analysis of the paper titled "Contrastive Learning of Structured World Models" and the C-SWM architecture it introduced as a method for learning abstract state representations from observations alone.'    
+description: 'Analysis of the paper titled "Contrastive Learning of Structured World Models" and the C-SWM as a method for learning abstract state representations from observations alone.'    
 code: "https://github.com/estiftole/c-swm"
 banner: "/assets/images/post-images/c-swm simplified.png"
 ---
