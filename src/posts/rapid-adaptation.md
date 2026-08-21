@@ -1,7 +1,7 @@
 ---
 layout: post.njk
-title: "Cross-Embodiment Policies for Rapid Adaptation"
-date: 2026-08-17  
+title: "Cross-Embodiment Policies for Rapid Adaptation (work in progress)"
+date: 2026-08-21 
 code: "https://github.com/estiftole/rapid-adaptation"
 description: 
 banner: "/assets/videos/NAIVE-episode-4.gif"
