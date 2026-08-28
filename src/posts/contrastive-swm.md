@@ -8,7 +8,7 @@ banner: "/assets/images/post-images/c-swm simplified.png"
 ---
 
 ## Introduction
-A world model is an internal representation of the environment that allows you to plan the optimal way to achieve your goal by means of internal simulation. 
+A world model is an internal representation of the environment that allows you to navigate and achieve goals. 
 
 It is a crucial aspect of human cognition, and has inspired a wide array of works exploring how to build systems with this ability.  
 
@@ -84,10 +84,11 @@ This loss function teaches the model to do three things:
 2. compute relevant abstract representations of states, and
 3. predict state transitions caused by actions.
 
- A more complete representation of the C-SWM architecture is in this image (stolen from the paper):
+ A more complete representation of the C-SWM architecture is in this image:
  
  <img src="{{ '/assets/images/post-images/c-swm architecture.jpg' | url }}" alt="c-swm architecture">
-
+ <a class="small-reference">From the paper</a>
+ 
 ## Implementation
 The authors published the <a class="reference" href="https://github.com/tkipf/c-swm">code of their implementation</a> along with their paper. Unfortunately, their implementation relies on now out-dated packages and functions (such as the `gym` package which is now `gymnasium`, with the atari games being branched off in another package `ale-py`), so I had to do some refactoring to get it to run in the modern ecosystem. 
 
@@ -101,9 +102,8 @@ The authors of the paper evaluated this architecture on two grid world environme
 
 Compared to approaches that rely on a pixel-level reconstruction loss (AE/VAE) and approaches that don’t use object-factorization (Physics-As-Inverse-Graphics model), the authors found C-SWM-based models perform better on multi-step abstract prediction.
 
-Table taken from paper:
-
 <img src="{{ '/assets/images/post-images/table1.jpeg' | url }}" alt="authors' table">
+<a class="small-reference">Table from the paper</a>
 
 For my evaluations, I compared the C-SWM to a version of the model that was trained on reconstruction loss with a decoder. Performance was compared on two Atari games (Breakout and Centipede). 
 
@@ -124,7 +124,7 @@ The authors describe a potential solution (iterative object encoding) to overcom
 They left it for future work, and so I decided to do the same. But I’ll be sure to explore it in the future. I think it would be interesting to see if it would work.
 
 ## Conclusion and Relevance
-2019 is ancient news in this field, but the ideas behind C-SWMs and especially SWMs are more relevant than ever. Model-based methods have advantages over model-free ones, and they provide superior generalization to novel scenes. But the most exciting prospect in my opinion is that of **analogical reasoning**. 
+2019 is ancient news in this field, but the ideas behind C-SWMs, and especially SWMs, are more relevant than ever. Model-based methods have several advantages over model-free ones, and they provide superior generalization to novel scenes. But the most exciting prospect in my opinion is that of **analogical reasoning**. 
 
 Similar to states in SWMs, analogies are defined by their members. It may be possible to build a system that uses a SWM to draw analogies between scenarios that seem very different on the surface but share the same underlying dynamics. 
 

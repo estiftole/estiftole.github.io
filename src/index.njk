@@ -1,12 +1,12 @@
 ---
 layout: base.njk
 title: "Projects and Write-ups"
-description: Things I've been working on.
+description: Things I've been working on
 ---
 
-<section class="posts-section open-sans">
-    <!--<div class="home-content open-sans"></div>-->
-    <div class="post-grid open-sans">
+<section class="posts-section ">
+    <!--<div class="home-content "></div>-->
+    <div class="post-grid ">
         {% for post in (collections.posts | reverse)%}
         <div class="card-parent">
             {% if post.data.banner %}
@@ -20,7 +20,7 @@ description: Things I've been working on.
               {% endif %}
             {% endif %}
       <article class="post-card">
-            <h3 class="zero-margin casual-btn upper-text"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+            <h3 class="zero-margin casual-btn"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
             <p class="zero-margin post-by">
                 <time>{{ post.date | numericDate }}</time>
             </p>

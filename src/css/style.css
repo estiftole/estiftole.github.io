@@ -5,9 +5,9 @@
 
 :root {
 
-  --bg-color: #f5f5f5;
+  --bg-color: white;
   --text-color: #222222;
-  --muted-text: #222222B3;
+  --muted-text: 0.85;
   --muted-bg: #E6E6E6;
   --border-color: #dedede;
 
@@ -16,7 +16,7 @@
   --accent-hover: #2643D6;
 
 
-  --code-bg: #dcdcde;
+  --code-bg: #E6E6E6;
   --code-text: #2E2E2E;
   --code-border: #EDEDED;
 
@@ -35,8 +35,6 @@
 [data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #E4E4E4;
-  --muted-text: #C7C7C7;
-  --muted-bg: #1C1C1C;
   --border-color: #333333;
 
   --accent-color: #6688FF;
@@ -59,15 +57,10 @@ html {
   box-sizing: border-box;
 }
 
-.inter {
-  font-family: "Inter", sans-serif;
+.geist-regular {
+  font-family: "Geist";
   font-optical-sizing: auto;
-  font-style: normal;
-}
-
-.open-sans {
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -188,7 +181,7 @@ body, nav, post-sidebar {
 }
 
 .mini-text {
-  color: var(--muted-text);
+  opacity: var(--muted-text);
 }
 
 .zero-margin {
@@ -219,7 +212,7 @@ body, nav, post-sidebar {
   border: none;
   font: inherit;
   white-space: nowrap;
-  color: var(--muted-text);
+  opacity: var(--muted-text);
   width: fit-content;
   border-left: 1px solid var(--code-bg);
   border-right: 1px solid var(--code-bg);
@@ -259,7 +252,8 @@ button {
 }
 
 .mute {
-    color: var(--muted-text);
+    opacity: var(--muted-text);
+    font-weight: 400;
 }
 
 .post-grid {
@@ -275,7 +269,7 @@ button {
     min-width: 50%;
     max-width: 50%;
     height: 35vh;
-    opacity: 0.8;
+    /*opacity: 0.8;*/
 }
 
 .vid-banner {
@@ -283,13 +277,13 @@ button {
     min-width: 50%;
     max-width: 50%;
     height: 35vh;
-    opacity: 0.8;
+    /*opacity: 0.8;*/
     background-color: var(--muted-bg);
 }
 
 .card-parent {
     display: flex;
-    gap: 40px;
+    gap: 30px;
     width: 100%;
 }
 
@@ -299,7 +293,7 @@ button {
   width: 100%;
   gap: 5px;
   align-items: start;
-  padding: 10px 0;
+  /*padding: 10px 0;*/
 }
 
 .post-info {
@@ -483,10 +477,10 @@ h1 {
     .post-grid {
         gap: 50px;
     }
-/*
+
     .top-head {
         padding-top: 10vh;
-    }*/
+    }
 
     .site-nav {
         width: 100%;
@@ -504,6 +498,11 @@ h1 {
 }
 
 .home-content {
-    color: var(--muted-text);
     padding-bottom: 8px;
+}
+
+.small-reference {
+    opacity: var(--muted-text);
+    font-size: 15px;
+    /*color: pink;*/
 }

@@ -2,6 +2,9 @@ node_modules/
 _site/
 .DS_Store
 
-src/posts/archive/
+archive/
 src/table.md
-src/assets/images/post-images/archive/
+
+*.mp4
+
+archive*.*
