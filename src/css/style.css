@@ -7,6 +7,7 @@
 
   --bg-color: white;
   --text-color: #222222;
+  --text-color-intense: black;
   --muted-text: 0.85;
   --muted-bg: #E6E6E6;
   --border-color: #dedede;
@@ -35,6 +36,7 @@
 [data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #E4E4E4;
+  --text-color-intense: white;
   --border-color: #333333;
 
   --accent-color: #6688FF;
@@ -388,7 +390,7 @@ pre code {
 .katex .mbin,
 .katex .mrel,
 .katex .msupsub {
-  color: var(--text-color);
+  color: var(--text-color-intense);
 }
 
 
