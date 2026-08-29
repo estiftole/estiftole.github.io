@@ -272,15 +272,6 @@ button {
     /*opacity: 0.8;*/
 }
 
-.vid-banner {
-    display: flex;
-    min-width: 50%;
-    max-width: 50%;
-    height: 35vh;
-    /*opacity: 0.8;*/
-    background-color: var(--muted-bg);
-}
-
 .card-parent {
     display: flex;
     gap: 30px;
@@ -455,7 +446,7 @@ h1 {
         flex-direction: column;
         gap: 20px;
     }
-    .banner, .vid-banner {
+    .banner {
         min-width: 100%;
         max-width: 100%;
 

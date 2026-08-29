@@ -9,6 +9,7 @@ description: Things I've been working on
     <div class="post-grid ">
         {% for post in (collections.posts | reverse)%}
         <div class="card-parent">
+            <a href="{{ post.url | url }}" class="banner">
             {% if post.data.banner %}
               {% if post.data.banner.endsWith('.mp4') %}
                 <video class="vid-banner" autoplay loop muted playsinline width="100%">
@@ -16,9 +17,10 @@ description: Things I've been working on
                   Your browser does not support video playback.
                 </video>
               {% else %}
-                <img src="{{ post.data.banner | url }}" class="banner" alt="c-swm simplified">
+                <img src="{{ post.data.banner | url }}" alt="c-swm simplified">
               {% endif %}
             {% endif %}
+            </a>
       <article class="post-card">
             <h3 class="zero-margin casual-btn"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
             <p class="zero-margin post-by">
