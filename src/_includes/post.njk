@@ -13,6 +13,34 @@ layout: base.njk
     </div>
 </article>
 
+<dialog id="image-lightbox">
+  <img src="" alt="Enlarged view">
+</dialog>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const dialog = document.getElementById('image-lightbox');
+  const dialogImg = dialog.querySelector('img');
+  const images = document.querySelectorAll('article img, .container img');
+
+  images.forEach(img => {
+    img.style.cursor = 'zoom-in';
+
+    img.addEventListener('click', () => {
+      dialogImg.src = img.src;
+      dialogImg.alt = img.alt;
+      dialog.showModal();
+    });
+  });
+
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) {
+      dialog.close();
+    }
+  });
+});
+</script>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const body = document.querySelector('.post-body');

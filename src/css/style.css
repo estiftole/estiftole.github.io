@@ -506,3 +506,23 @@ h1 {
     font-size: 15px;
     /*color: pink;*/
 }
+
+dialog#image-lightbox {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 95vw;
+  max-height: 95vh;
+}
+
+dialog#image-lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+dialog#image-lightbox img {
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain; /* Ensures the aspect ratio remains perfect */
+  border-radius: 4px;
+}
