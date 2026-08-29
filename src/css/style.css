@@ -234,8 +234,9 @@ button {
 }
 
 .reference {
-  text-decoration: underline var(--muted-text) 2px;
+    color: var(--accent-hover);
 }
+
 .reference:hover {
   color: var(--accent-hover);
   text-decoration: underline var(--accent-hover) 2px;

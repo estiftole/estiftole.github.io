@@ -92,7 +92,7 @@ This loss function teaches the model to do three things:
 ## Implementation
 The authors published the <a class="reference" href="https://github.com/tkipf/c-swm">code of their implementation</a> along with their paper. Unfortunately, their implementation relies on now out-dated packages and functions (such as the `gym` package which is now `gymnasium`, with the atari games being branched off in another package `ale-py`), so I had to do some refactoring to get it to run in the modern ecosystem. 
 
-You can find my updated implementation on <a class="reference" href="https://github.com/estiftole/c-swm">Github</a>.
+You can also find <a class="reference" href="https://github.com/estiftole/c-swm">my updated implementation.</a>
 ## Evaluation
 The authors of the paper evaluated this architecture on two grid world environments, two atari games (pong and space invaders), and 3-body physics simulation.
 
