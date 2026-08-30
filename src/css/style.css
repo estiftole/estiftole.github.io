@@ -501,12 +501,16 @@ h1 {
     /*color: pink;*/
 }
 
+.small-reference[href]:hover {
+    color: var(--accent-hover);
+}
+
 dialog#image-lightbox {
   border: none;
   background: transparent;
   padding: 0;
-  max-width: 95vw;
-  max-height: 95vh;
+  max-width: 90vw;
+  max-height: 90vh;
 }
 
 dialog#image-lightbox::backdrop {
