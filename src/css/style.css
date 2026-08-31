@@ -272,7 +272,11 @@ button {
     min-width: 50%;
     max-width: 50%;
     height: 35vh;
-    /*opacity: 0.8;*/
+    opacity: 0.8;
+}
+
+.banner:hover {
+    opacity: 1;
 }
 
 .card-parent {

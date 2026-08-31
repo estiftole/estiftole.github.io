@@ -4,7 +4,7 @@ title: "Contrastive Learning of Structured World Models"
 date: 2026-08-11
 description: 'Analysis and reproduction of the paper titled "Contrastive Learning of Structured World Models" and the C-SWM as a method for learning abstract state representations from observations alone.'    
 code: "https://github.com/estiftole/c-swm"
-banner: "/assets/images/post-images/c-swm/c-swm simplified.png"
+banner: "/assets/images/c-swm/c-swm simplified.png"
 ---
 
 ## Introduction
@@ -29,7 +29,7 @@ $$z_t = \{z_t^{(1)}, z_t^{(2)}, \dots, z_t^{(K)}\}$$
 ## C-SWM Architecture
 Here's a simplified diagram of the C-SWM architecture:  
 
-<img src="{{ '/assets/images/post-images/c-swm/c-swm simplified.png' | url }}" alt="c-swm simplified">
+<img src="{{ '/assets/images/c-swm/c-swm simplified.png' | url }}" alt="c-swm simplified">
 
 The state $s_t$ is passed through an encoder module that returns an abstract state representation $z_t^k$ for each object. 
 
@@ -86,7 +86,7 @@ This loss function teaches the model to do three things:
 
  A more complete representation of the C-SWM architecture is in this image:
  
- <img src="{{ '/assets/images/post-images/c-swm/c-swm architecture.jpg' | url }}" alt="c-swm architecture">
+ <img src="{{ '/assets/images/c-swm/c-swm architecture.jpg' | url }}" alt="c-swm architecture">
  <a class="small-reference">From the paper</a>
  
 ## Implementation
@@ -102,12 +102,12 @@ The authors of the paper evaluated this architecture on two grid world environme
 
 Compared to approaches that rely on a pixel-level reconstruction loss (AE/VAE) and approaches that don’t use object-factorization (Physics-As-Inverse-Graphics model), the authors found C-SWM-based models perform better on multi-step abstract prediction.
 
-<img src="{{ '/assets/images/post-images/c-swm/table1.jpeg' | url }}" alt="authors' table">
+<img src="{{ '/assets/images/c-swm/table1.jpeg' | url }}" alt="authors' table">
 <a class="small-reference">Table from the paper</a>
 
 For my evaluations, I compared the C-SWM to a version of the model that was trained on reconstruction loss with a decoder. Performance was compared on two Atari games (Breakout and Centipede). 
 
-<img src="{{ '/assets/images/post-images/c-swm/table2.jpeg' | url }}" alt="my table">
+<img src="{{ '/assets/images/c-swm/table2.jpeg' | url }}" alt="my table">
 
 Results mimic that of the original paper, with the C-SWM model performing better than the reconstruction-based version.
 
