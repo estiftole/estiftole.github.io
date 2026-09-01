@@ -8,6 +8,17 @@ layout: base.njk
             <nav class="toc" id="toc-nav" />
         </aside>
         <div class="post-body open-sans">
+            {% if summary %}
+            <div class="summary-box">
+              <button type="button" class="summary-toggle" onclick="toggleSummary()" aria-expanded="false">
+                <span>Summary</span>
+                <span class="chevron muted">▼</span>
+              </button>
+              <div id="summary-content" class="summary-content" style="display: none;">
+                {{ summary }}
+              </div>
+            </div>
+            {% endif %}
             {{ content | safe }}
         </div>
     </div>
@@ -18,57 +29,60 @@ layout: base.njk
 </dialog>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const dialog = document.getElementById('image-lightbox');
-  const dialogImg = dialog.querySelector('img');
-  const images = document.querySelectorAll('article img, .container img');
+    function toggleSummary() {
+      const btn = document.querySelector('.summary-toggle');
+      const content = document.getElementById('summary-content');
+      const isHidden = content.style.display === 'none';
 
-  images.forEach(img => {
-    img.style.cursor = 'zoom-in';
-
-    img.addEventListener('click', () => {
-      dialogImg.src = img.src;
-      dialogImg.alt = img.alt;
-      dialog.showModal();
-    });
-  });
-
-  dialog.addEventListener('click', (e) => {
-    if (e.target === dialog) {
-      dialog.close();
+      content.style.display = isHidden ? 'block' : 'none';
+      btn.classList.toggle('open', isHidden);
+      btn.setAttribute('aria-expanded', isHidden);
     }
-  });
-});
-</script>
 
-<script>
     document.addEventListener('DOMContentLoaded', () => {
-        const body = document.querySelector('.post-body');
-        const toc = document.getElementById('toc-nav');
+      const dialog = document.getElementById('image-lightbox');
+      const dialogImg = dialog.querySelector('img');
+      const images = document.querySelectorAll('article img, .container img');
+      const body = document.querySelector('.post-body');
+      const toc = document.getElementById('toc-nav');
+      const headings = body.querySelectorAll('h2');
 
-        // Select all H2 elements (this corresponds to '##' in Markdown)
-        const headings = body.querySelectorAll('h2');
+      // Hide the sidebar entirely if there are no H2 headings in the post
+      if (headings.length === 0) {
+          document.querySelector('.post-sidebar').style.display = 'none';
+          return;
+      }
 
-        // Hide the sidebar entirely if there are no H2 headings in the post
-        if (headings.length === 0) {
-            document.querySelector('.post-sidebar').style.display = 'none';
-            return;
-        }
+      headings.forEach((heading) => {
+          // 1. Generate an ID for the heading if Markdown didn't create one
+          // E.g., "My Big Idea!" becomes "my-big-idea"
+          const id = heading.id || heading.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+          heading.id = id;
 
-        headings.forEach((heading) => {
-            // 1. Generate an ID for the heading if Markdown didn't create one
-            // E.g., "My Big Idea!" becomes "my-big-idea"
-            const id = heading.id || heading.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-            heading.id = id;
+          // 2. Create the anchor link
+          const link = document.createElement('a');
+          link.href = `#${id}`;
+          link.textContent = heading.textContent;
+          link.className = 'toc-link';
 
-            // 2. Create the anchor link
-            const link = document.createElement('a');
-            link.href = `#${id}`;
-            link.textContent = heading.textContent;
-            link.className = 'toc-link';
+          // 3. Append to the menu
+          toc.appendChild(link);
+      });
 
-            // 3. Append to the menu
-            toc.appendChild(link);
+      images.forEach(img => {
+        img.style.cursor = 'zoom-in';
+
+        img.addEventListener('click', () => {
+          dialogImg.src = img.src;
+          dialogImg.alt = img.alt;
+          dialog.showModal();
         });
+      });
+
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) {
+          dialog.close();
+        }
+      });
     });
 </script>

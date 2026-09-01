@@ -5,6 +5,7 @@ date: 2026-08-11
 description: 'Analysis and reproduction of the paper titled "Contrastive Learning of Structured World Models" and the C-SWM as a method for learning abstract state representations from observations alone.'    
 code: "https://github.com/estiftole/c-swm"
 banner: "/assets/images/c-swm/c-swm simplified.png"
+summary: "I reimplemented the C-SWM architecture from the Contrastively-trained Structured World Models paper and evaluated it on Breakout and Centipede."
 ---
 
 ## Introduction
@@ -87,7 +88,7 @@ This loss function teaches the model to do three things:
  A more complete representation of the C-SWM architecture is in this image:
  
  <img src="{{ '/assets/images/c-swm/c-swm architecture.jpg' | url }}" alt="c-swm architecture">
- <a class="small-reference">From the paper</a>
+ <a class="small-reference">C-SWM architecture; from the paper</a>
  
 ## Implementation
 The authors published the <a class="reference" href="https://github.com/tkipf/c-swm">code of their implementation</a> along with their paper. Unfortunately, their implementation relies on now out-dated packages and functions (such as the `gym` package which is now `gymnasium`, with the atari games being branched off in another package `ale-py`), so I had to do some refactoring to get it to run in the modern ecosystem. 

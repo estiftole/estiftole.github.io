@@ -11,6 +11,7 @@
   --muted-text: 0.85;
   --muted-bg: #E6E6E6;
   --border-color: #dedede;
+  --border-color-light: #dedede40;
 
 
   --accent-color: #3B5CFF;
@@ -38,6 +39,7 @@
   --text-color: #E4E4E4;
   --text-color-intense: white;
   --border-color: #333333;
+  --border-color-light: #33333340;
 
   --accent-color: #6688FF;
   --accent-hover: #88A0FF;
@@ -503,6 +505,7 @@ h1 {
     opacity: var(--muted-text);
     font-size: 15px;
     /*color: pink;*/
+    font-style: italic;
 }
 
 .small-reference[href]:hover {
@@ -527,4 +530,32 @@ dialog#image-lightbox img {
   max-height: 90vh;
   object-fit: contain; /* Ensures the aspect ratio remains perfect */
   border-radius: 4px;
+}
+
+.summary-box {
+    padding: 10px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--border-color-light);
+}
+
+.summary-box > .summary-toggle {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.chevron {
+  display: inline-block;
+}
+
+.summary-toggle.open .chevron {
+  transform: rotate(180deg);
 }
