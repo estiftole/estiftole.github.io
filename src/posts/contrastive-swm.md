@@ -47,7 +47,7 @@ Therefore the loss used to train C-SWMs can be represented as:
 $$
 \mathcal{L} = d(z_t + \Delta z_t, z_{t+1}) + \max(0, \gamma-d(\tilde{z}_{t}, z_{t+1}))
 $$
-where $d(z_t + \Delta z_t, z_{t+1})$ is the difference between the predicted and actual next states, $d(\tilde{z}_{t}, z_{t+1})$ is the difference between a negative sample and actual next state, and $\gamma$ is a hyperparameter.
+where $d(z_t + \Delta z_t, z_{t+1})$ is the difference between the predicted and actual next states, $d(\tilde{z}_{t}, z_{t+1})$ is the difference between a negative sample and actual next state, and $\gamma$ is a hyperparameter that represents the minimum acceptable distance between two states that are not alike.
 
 ### **Encoder**
 The encoder module is composed of a CNN-based model for object extraction $E_{ext}$ and an MLP-based object encoder $E_{enc}$.
