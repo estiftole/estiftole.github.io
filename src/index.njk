@@ -6,7 +6,7 @@ description: Things I've been working on
 
 <section class="posts-section ">
     <div class="post-grid ">
-        {% for post in (collections.posts | reverse)%}
+        {% for post in (collections.projects | reverse)%}
         <div class="card-parent">
             <a href="{{ post.url | url }}" class="banner">
                 {% if post.data.banner %}
