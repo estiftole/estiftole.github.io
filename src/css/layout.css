@@ -77,9 +77,9 @@ html {
 
 .post-layout {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 270px 1fr;
   padding-top: var(--special-padding);
-  gap: 40px;
+  gap: 30px;
   width: var(--display-width);
   align-items: start;
 }
@@ -94,7 +94,7 @@ html {
   counter-reset: toc-count;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
 }
 

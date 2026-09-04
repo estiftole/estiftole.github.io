@@ -124,7 +124,7 @@ The authors describe a potential solution (iterative object encoding) to overcom
 
 They left it for future work, and so I decided to do the same. But I’ll be sure to explore it in the future. I think it would be interesting to see if it would work.
 
-## Conclusion and Relevance
+## Final Thoughts
 2019 is ancient news in this field, but the ideas behind C-SWMs, and especially SWMs, are more relevant than ever. Model-based methods have several advantages over model-free ones, and they provide superior generalization to novel scenes. But the most exciting prospect in my opinion is that of **analogical reasoning**. 
 
 Similar to states in SWMs, analogies are defined by their members. It may be possible to build a system that uses a SWM to draw analogies between scenarios that seem very different on the surface but share the same underlying dynamics. 
