@@ -116,6 +116,8 @@ html {
 .post-body {
   font-size: 17px;
   padding-bottom: 50px;
+  justify-content: center;
+  width: 100%
 }
 
 .post-sidebar {
@@ -153,8 +155,8 @@ blockquote > :first-child {
 
 @media (max-width: 846px) {
   .post-layout {
-    grid-template-columns: 1fr;
-    gap: 0px;
+    /*grid-template-columns: 1fr;*/
+    display: flex;
   }
 
   .post-sidebar {
