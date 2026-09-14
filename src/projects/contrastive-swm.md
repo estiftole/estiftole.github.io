@@ -9,9 +9,7 @@ summary: "I reimplemented the C-SWM architecture from the Contrastively-trained 
 ---
 
 ## Introduction
-A world model is an internal representation of the environment that allows you to navigate and achieve goals. 
-
-It is a crucial aspect of human cognition, and has inspired a wide array of works exploring how to build systems with this ability.  
+A world model is an internal representation of the environment that allows you to navigate and achieve goals. It is a crucial aspect of human cognition, and has inspired a wide array of works exploring how to build systems with this ability.  
 
 Learning the right latent space is the most challenging part of building world models. Methods that rely on visual reconstruction as the primarily objective (e.g. variational autoencoders) run the risk of learning visual features that aren't relevant for abstract reasoning. Predicting the world at pixel-level detail is wasteful. 
 
@@ -27,10 +25,10 @@ Where $s_t^{(k)}$ is the state of object $k$ at $t$.
 Similarily, the latent representation of the state can be expressed as:
 $$z_t = \{z_t^{(1)}, z_t^{(2)}, \dots, z_t^{(K)}\}$$
 
-## C-SWM Architecture
+## Architecture
 Here's a simplified diagram of the C-SWM architecture:  
 
-<img src="{{ '/assets/images/c-swm/c-swm simplified.png' | url }}" alt="c-swm simplified">
+<img src="{{ '/assets/images/c-swm/c-swm simplified.png' | url }}" alt="c-swm simplified" class="post-asset">
 
 The state $s_t$ is passed through an encoder module that returns an abstract state representation $z_t^k$ for each object. 
 
@@ -87,13 +85,11 @@ This loss function teaches the model to do three things:
 
  A more complete representation of the C-SWM architecture is in this image:
  
- <img src="{{ '/assets/images/c-swm/c-swm architecture.jpg' | url }}" alt="c-swm architecture">
+ <img src="{{ '/assets/images/c-swm/c-swm architecture.jpg' | url }}" alt="c-swm architecture" class="post-asset">
  <a class="small-reference">C-SWM architecture; from the paper</a>
- 
-## Implementation
-The authors published the <a class="reference" href="https://github.com/tkipf/c-swm">code of their implementation</a> along with their paper. Unfortunately, their implementation relies on now out-dated packages and functions (such as the `gym` package which is now `gymnasium`, with the atari games being branched off in another package `ale-py`), so I had to do some refactoring to get it to run in the modern ecosystem. 
 
-You can also find <a class="reference" href="https://github.com/estiftole/c-swm">my updated implementation.</a>
+The authors published the <a class="reference" href="https://github.com/tkipf/c-swm">code of their implementation</a> along with their paper. Unfortunately, their implementation relies on now out-dated packages and functions (such as the `gym` package which is now `gymnasium`, with the atari games being branched off in another package `ale-py`), so I had to do some refactoring to get it to run in the modern ecosystem. You can find my updated implementation <a class="reference" href="https://github.com/estiftole/c-swm">in this repo.</a>
+ 
 ## Evaluation
 The authors of the paper evaluated this architecture on two grid world environments, two atari games (pong and space invaders), and 3-body physics simulation.
 
@@ -103,12 +99,12 @@ The authors of the paper evaluated this architecture on two grid world environme
 
 Compared to approaches that rely on a pixel-level reconstruction loss (AE/VAE) and approaches that don’t use object-factorization (Physics-As-Inverse-Graphics model), the authors found C-SWM-based models perform better on multi-step abstract prediction.
 
-<img src="{{ '/assets/images/c-swm/table1.jpeg' | url }}" alt="authors' table">
+<img src="{{ '/assets/images/c-swm/table1.jpeg' | url }}" alt="authors' table" class="post-asset" class="post-asset">
 <a class="small-reference">Table from the paper</a>
 
 For my evaluations, I compared the C-SWM to a version of the model that was trained on reconstruction loss with a decoder. Performance was compared on two Atari games (Breakout and Centipede). 
 
-<img src="{{ '/assets/images/c-swm/table2.jpeg' | url }}" alt="my table">
+<img src="{{ '/assets/images/c-swm/table2.jpeg' | url }}" alt="my table" class="post-asset">
 
 Results mimic that of the original paper, with the C-SWM model performing better than the reconstruction-based version.
 
