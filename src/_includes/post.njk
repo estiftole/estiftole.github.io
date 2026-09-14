@@ -81,6 +81,8 @@ layout: base.njk
 
       dialog.addEventListener('click', (e) => {
         if (e.target === dialog) {
+          dialogImg.src = '';
+          dialogImg.alt = '';
           dialog.close();
         }
       });
