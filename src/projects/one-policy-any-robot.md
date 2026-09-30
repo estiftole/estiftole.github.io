@@ -19,7 +19,7 @@ An embodiment-agnostic (cross-embodiment) policy would have superior sample effi
 
 ## Early Experiments
 
-(Skip to "APPROACHES" for actual cross-embodiment architectures.)
+(Skip to "Approaches" for actual cross-embodiment architectures.)
 
 Before experimenting with advanced algorithms, I played around with simple environments. My goal was to see if I could train a policy that adapts to varying limb sizes. So, I started with training simple PPO models on the default `Cartpole`, `BipedalWalker`, and `Pusher` environments from the gymnasium library, but with two modifications; I randomized certain variables (like limb length, mass), and concatenated morphology information into the observation vector.
 
