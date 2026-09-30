@@ -4,7 +4,7 @@ title: "Building a Universal Policy that Controls Any Robot"
 date: 2026-09-15
 code: "https://github.com/estiftole/cross-embodiment"
 description: Exploration of cross-embodiment policies; models that can adapt to and effectively control unseen robot morphologies.
-banner: "/assets/videos/one-policy-any-robot/archive-camera_pack_top.gif"
+banner: "/assets/images/one-policy-any-robot/urma_banner.gif"
 summary: "I trained cross-embodiment policies that learn to adapt to unseen robot bodies at test-time and control them effectively."
 ---
 
@@ -125,6 +125,10 @@ The reward constitutes of a reward for moving toward the target (`progress_rewar
 ## Thoughts
 ### VLAs
 Vision-Language-Action models have emerged recently as a promising path towards general cross-embodiment control going beyond simple tasks like locomotion. I have a lot of thoughts on them, but I believe that is beyond the scope of this project, so I'll explore them at some point in the future.
+
+<iframe class="yt-link"
+src="https://www.youtube.com/embed/6dme3JYj3Hg">
+</iframe>
 
 ### Simplicity of Environment
 My environment only had two distinct embodiments; significantly simpler than the embodiments explored in many cross-embodiment works. But as I was working on this project I realised that the number of practical embodiments deployed in the real-world is limited. I didn't see the purposed in building models to control the kinds of models used in the MetaMorph project:
