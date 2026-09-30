@@ -17,21 +17,9 @@ Simulated environments are great because they allow you to train robots to perfo
 
 An embodiment-agnostic policy like that would provide superior sample efficiency compared to training a new policy from scratch, or even fine-tuning on data from the target environment. This idea has inspired many approaches and architectures over the years, and this is my attempt at describing the most interesting ones I've encountered.
 
-## Approaches
-Arguably, the most important part of building a cross-embodiment architecture is deciding how your model adapts to the varying number of limbs and joints. You could still train a policy to adapt to varying limb sizes and joint conditions even if it only accepts a fixed number of joints (like I did in early experiments). But it would be limited to that specific number. You can't train it to control both bipeds *and* quadrupeds for example.
-
-The two most popular approaches to solve this problem are Graph Neural Networks and Transformers. GNNs dominated early on because, for one, they existed before transformers. But also because modelling a robot as a graph is intuitive. <a class="reference" href="https://openreview.net/forum?id=S1sqHMZCb">NerveNet</a> is one of the earlier cross-embodiment architectures that utilitized GNNs.
-
-GNNs are less compute-intensive than Transformers because nodes only communicate with their neighbors. But this becomes a problem when scaling to larger and more complex morphologies. If two limbs or joints that are far apart need to coordinate, messages between them would get washed out because they'd have to hop over many nodes in-between. 
-
-Transformers don't have this problem because they're basically fully-connected GNNs; every node directly attends to every other node, so messages don't get washed out. This comes at extra computational cost since *all* the nodes are connected (even ones that don't need to be). Their robustness, however, still makes them favored over GNNs.
-
-But you don't have to entirely rely on a Transformer as the core action generator. For example, the <a class="reference" href="https://arxiv.org/abs/2409.06366">Universal Robot Morphology Architecture (URMA)</a> only uses self-attention to "compress" variable-length morphology information into a fixed-length latent vector. The modules that come after this encoder are not attention-based, so computation is not only cheaper, but also faster than using a Transformer all the way through.
-
-
 ## Early Experiments
 
-Before I got to implementing the more advanced algorithms, I played around with simple environments. My goal was to see if I could train a policy that adapts to varying limb sizes. So, I started with training simple PPO models on the default `Cartpole`, `BipedalWalker`, and `Pusher` environments from the gymnasium library, but with two modifications; I randomized certain variables (like limb length, mass), and concatenated morphology information into the observation vector.
+Before I got to experiment with advanced algorithms, I played around with simple environments. My goal was to see if I could train a policy that adapts to varying limb sizes. So, I started with training simple PPO models on the default `Cartpole`, `BipedalWalker`, and `Pusher` environments from the gymnasium library, but with two modifications; I randomized certain variables (like limb length, mass), and concatenated morphology information into the observation vector.
 
 *The "Naive" policy is one trained on the default environment parameters, and the "Randomized" policy is trained on randomized environment parameters.*
 
@@ -55,6 +43,16 @@ The robustness gap was most visible in the `Pusher` environment. The policy trai
 
 After playing around with simpler enviroments, I moved on to training actual cross-embodiment policies i.e. varying the number of joints instead of only mass and length. I reimplemented two architectures, NerveNet and URMA, to represent the performance of GNNs and Transformers respectively.
 
+## Approaches
+Arguably, the most important part of building a cross-embodiment architecture is deciding how your model adapts to the varying number of limbs and joints. You could still train a policy to adapt to varying limb sizes and joint conditions even if it only accepts a fixed number of joints (like I did in early experiments). But it would be limited to that specific number. You can't train it to control both bipeds *and* quadrupeds for example.
+
+The two most popular approaches to solve this problem are Graph Neural Networks and Transformers. GNNs dominated early on because, for one, they existed before transformers. But also because modelling a robot as a graph is intuitive. <a class="reference" href="https://openreview.net/forum?id=S1sqHMZCb">NerveNet</a> is one of the earlier cross-embodiment architectures that utilitized GNNs.
+
+GNNs are less compute-intensive than Transformers because nodes only communicate with their neighbors. But this becomes a problem when scaling to larger and more complex morphologies. If two limbs or joints that are far apart need to coordinate, messages between them would get washed out because they'd have to hop over many nodes in-between. 
+
+Transformers don't have this problem because they're basically fully-connected GNNs; every node directly attends to every other node, so messages don't get washed out. This comes at extra computational cost since *all* the nodes are connected (even ones that don't need to be). Their robustness, however, still makes them favored over GNNs.
+
+But you don't have to entirely rely on a Transformer as the core action generator. For example, the <a class="reference" href="https://arxiv.org/abs/2409.06366">Universal Robot Morphology Architecture (URMA)</a> only uses self-attention to "compress" variable-length morphology information into a fixed-length latent vector. The modules that come after this encoder are not attention-based, so computation is not only cheaper, but also faster than using a Transformer all the way through.
 
 ## NerveNet
 
