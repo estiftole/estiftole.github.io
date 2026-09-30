@@ -5,6 +5,6 @@ _site/
 archive/
 src/table.md
 
-*.mp4
+# *.mp4
 
 archive*.*
