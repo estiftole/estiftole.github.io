@@ -5,7 +5,7 @@ date: 2026-09-15
 code: "https://github.com/estiftole/cross-embodiment"
 description: Exploration of cross-embodiment policies; models that can adapt to and effectively control unseen robot morphologies.
 banner: "/assets/images/one-policy-any-robot/urma_banner.gif"
-summary: "I trained cross-embodiment policies that learn to adapt to unseen robot bodies at test-time and control them effectively."
+summary: "Cross-embodiment policies are policies that learn to adapt to unseen robot bodies at test-time and control them effectively. I experimented with two such algorithms: NerveNet and Universal Robot Morphology Architecture."
 ---
 
 ## Introduction
