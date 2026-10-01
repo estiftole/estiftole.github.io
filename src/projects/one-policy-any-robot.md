@@ -43,7 +43,7 @@ _The arm itself has no collision by design. The robot can only interact with the
 
 The robustness gap was most visible in the `Pusher` environment. The policy trained on randomized forearm lengths had a much higher success rate than the vanilla policy, which appeared to succeed only when the forearm length was within a small margin of the length it was trained on. 
 
-After playing around with simpler enviroments, I moved on to training actual cross-embodiment policies i.e. varying the number of joints instead of only mass and length. I reimplemented two architectures, NerveNet and URMA, to represent the performance of GNNs and Transformers respectively.
+After playing around with simpler enviroments, I moved on to training actual cross-embodiment policies i.e. varying the number of joints instead of only mass and length.
 
 ## Approaches
 Arguably, the most important part of building a cross-embodiment architecture is deciding how your model adapts to the varying number of limbs and joints. You could still train a policy to adapt to varying limb sizes and joint conditions even if it only accepts a fixed number of joints (like I did in early experiments). But it would be limited to that specific number. You can't train it to control both bipeds *and* quadrupeds for example.
@@ -61,7 +61,7 @@ Transformers don't have this problem because they're basically fully-connected G
 <img src="{{ '/assets/images/one-policy-any-robot/nervenet-architecture.jpeg' | url }}" class="post-asset">
 <a class="small-reference" href="https://openreview.net/forum?id=S1sqHMZCb">NerveNet: Learning Structured Policy with Graph Neural Networks</a>
 
-NerveNet's architecture is pleasantly straightforward. Intialize a node for each joint in the robot, encode joint information and pass it thorough to its respective node, propagate messages for a few layers, pass the final hidden states through an action decoder, and in the end you get the motor commands for each joint.
+NerveNet's architecture is pleasantly straightforward. Intialize a node for each joint in the robot, encode joint information and pass it through to its respective node, propagate messages for a few layers, pass the final hidden states through an action decoder, and in the end you get the motor commands for each joint.
 
 NerveNet was originally made with only forward locomotion in mind. For my goal of having the robot move to an arbitrary target location, a slight modification was necessary. I settled for adding a global node that's connected to every node in the graph, and passing the goal information to that global node.
 
@@ -100,7 +100,7 @@ It has a really interesting design choice because it doesn't output the value of
 $$
 a = \mu + \sigma \cdot \epsilon
 $$
-The variable $\epsilon$ is a noise vector and where the randomness comes from during sampling. This is a common sampling method used in continuous control policies where you want more exploration early on in training. As the model gets better, you expect the value of $\sigma$ to get lower as the "confidence" of the model increases. Then you can completely drop the random sampling and just use $a = \mu$ during deployment.
+The variable $\epsilon$ is a noise vector and it's where the randomness comes from during sampling. This is a common sampling method used in continuous control policies where you want more exploration early on in training. As the model gets better, you expect the value of $\sigma$ to get lower as the "confidence" of the model increases. Then you can completely drop the random sampling and just use $a = \mu$ during deployment.
 
 ### Putting it all together
 Finally, put the three modules together and you get the complete **Universal Robot Morphology Architecture**; the best of Transformers without prohibitive computational cost:
@@ -124,7 +124,7 @@ The reward constitutes of a reward for moving toward the target (`progress_rewar
 
 ## Things I Left Out
 ### VLAs
-Vision-Language-Action models have emerged recently as a promising path towards general cross-embodiment control going beyond simple tasks like locomotion. I have a lot of thoughts on them, but I believe that is beyond the scope of this project, so I'll explore them at some point in the future.
+Vision-Language-Action models have emerged recently as a promising path towards general cross-embodiment control going beyond simple tasks like locomotion. I have a lot of thoughts on them, but I believe they are beyond the scope of this project, so I'll explore them at some point in the future.
 
 <iframe class="yt-link"
 src="https://www.youtube.com/embed/6dme3JYj3Hg">
@@ -137,4 +137,4 @@ My environment only had two distinct embodiments; significantly simpler than the
 src="https://www.youtube.com/embed/mGXtjLxyAkQ">
 </iframe>
 
-That doesn't take away from the fact that developing models to control different variants is crucial for robust deployments in unseen environments, even if the *category* of embodiment is the same. Imagine deploying a robot on another for autonomous exploration. It would fail if it was training for specific environmental conditions. What if it breaks its leg? What if it has to add mass onto itself to move to another location? I predict that cross-embodiment policies are going to be the industry standard for building robots in the future.
+That doesn't take away from the fact that developing models to control different variants is crucial for robust deployments in unseen environments, even if the *category* of embodiment is the same. Imagine deploying a robot on another planet for autonomous exploration. It would fail if it was training for specific environmental conditions. What if it breaks its leg? What if it has to add mass onto itself to move to another location? I predict that cross-embodiment policies are going to be the industry standard for building robots in the future.
