@@ -17,7 +17,7 @@ Instead, what if you trained a single policy that can adapt to any new robot? Wh
 
 An embodiment-agnostic (cross-embodiment) policy would have superior sample efficiency over training a new policy from scratch, or even fine-tuning on data from the target environment. This idea has inspired many approaches and architectures over the years, and this is my attempt at describing the most interesting ones I've encountered.
 
-## Early Experiments
+<!--## Early Experiments
 
 (Skip to "Approaches" for actual cross-embodiment architectures.)
 
@@ -43,10 +43,10 @@ _The arm itself has no collision by design. The robot can only interact with the
 
 The robustness gap was most visible in the `Pusher` environment. The policy trained on randomized forearm lengths had a much higher success rate than the vanilla policy, which appeared to succeed only when the forearm length was within a small margin of the length it was trained on. 
 
-After playing around with simpler enviroments, I moved on to training actual cross-embodiment policies i.e. varying the number of joints instead of only mass and length. I reimplemented two architectures, NerveNet and URMA, to represent the performance of GNNs and Transformers respectively.
+After playing around with simpler enviroments, I moved on to training actual cross-embodiment policies i.e. varying the number of joints instead of only mass and length. I reimplemented two architectures, NerveNet and URMA, to represent the performance of GNNs and Transformers respectively.-->
 
 ## Approaches
-Arguably, the most important part of building a cross-embodiment architecture is deciding how your model adapts to the varying number of limbs and joints. You could still train a policy to adapt to varying limb sizes and joint conditions even if it only accepts a fixed number of joints (like I did in early experiments). But it would be limited to that specific number. You can't train it to control both bipeds *and* quadrupeds for example.
+Arguably, the most important part of building a cross-embodiment architecture is deciding how your model adapts to the varying number of limbs and joints. You could still train a policy to adapt to varying limb sizes and joint conditions even if it only accepts a fixed number of joints. But it would be limited to that specific number. You can't train it to control both bipeds *and* quadrupeds for example.
 
 The two most popular approaches to solve this problem are Graph Neural Networks and Transformers. GNNs dominated early on because, for one, they existed before transformers. But also because modelling a robot as a graph is intuitive. <a class="reference" href="https://openreview.net/forum?id=S1sqHMZCb">NerveNet</a> is one of the earlier cross-embodiment architectures that utilitized GNNs.
 
