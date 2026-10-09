@@ -26,7 +26,7 @@
   --font-family: system-ui, -apple-system, sans-serif;
   --border-width: 1px;
   --special-padding: 30px;
-  --display-width: 80%;
+  --display-width: 85%;
 
   --scrollbar-thumb: rgba(0, 0, 0, 0.2);
   --scrollbar-track: transparent;
@@ -34,12 +34,12 @@
 
 
 [data-theme="dark"] {
-  --bg-color: #121212;
+  --bg-color: #0A0A0A;
   --text-color: #D4D4D4;
   /*--text-color: #CCCCCC;*/
   --text-color-intense: white;
-  --border-color: #333333;
-  --border-color-light: #33333340;
+  --border-color: #262626;
+  --border-color-light: #26262640;
 
   --accent-color: #6688FF;
   --accent-hover: #88A0FF;
@@ -273,7 +273,7 @@ button {
     min-width: 50%;
     max-width: 50%;
     height: 35vh;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .banner:hover {
