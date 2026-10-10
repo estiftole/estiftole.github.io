@@ -130,7 +130,7 @@ Vision-Language-Action models have emerged recently as a promising path towards 
 src="https://www.youtube.com/embed/6dme3JYj3Hg">
 </iframe>
 
-### Simplicity of Environment
+### Diversity of Embodiments
 My environment only had two distinct embodiments; significantly simpler than the embodiments explored in many cross-embodiment works. But as I was working on this project I realised that the number of practical embodiments deployed in the real-world is limited. I didn't see the purposed in building models to control the kinds of models used in the MetaMorph project:
 
 <iframe class="yt-link"
