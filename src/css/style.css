@@ -513,10 +513,6 @@ h1 {
     scrollbar-width: thin;
 }
 
-/*.home-title {
-    padding-bottom: 10px;
-}*/
-
 .small-reference {
     opacity: var(--muted-text);
     font-size: 15px;
