@@ -8,7 +8,7 @@
   --bg-color: white;
   --text-color: #363636;
   --text-color-intense: black;
-  --muted-text: 0.85;
+  --muted-text: 0.9;
   --muted-bg: #E6E6E6;
   --border-color: #dedede;
   --border-color-light: #dedede40;
@@ -513,8 +513,8 @@ h1 {
     scrollbar-width: thin;
 }
 
-.home-content {
-    padding-bottom: 8px;
+.home-title {
+    padding-bottom: 10px;
 }
 
 .small-reference {

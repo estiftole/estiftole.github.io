@@ -1,10 +1,8 @@
 ---
-layout: base.njk
-title: "ML Projects and Write-ups"
-description: Things I've been working on.
+layout: home.njk
 ---
 
-<section class="posts-section ">
+<section class="posts-section">
     <div class="post-grid ">
         {% for post in (collections.projects | reverse)%}
         <div class="card-parent">

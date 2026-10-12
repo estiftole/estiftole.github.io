@@ -22,7 +22,12 @@ th {
     padding-top: 20vh;
     padding-bottom: var(--special-padding);
     width: var(--display-width);
+}
 
+.homepage-header {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .upper-text {
@@ -31,13 +36,13 @@ th {
 
 .mainpost-header > h1 {
     font-weight: 500;
-    /*padding-bottom: 4px;*/
 }
 
-.post-author {
+.post-meta {
     font-size: 17px;
     display: flex;
     gap: 60px;
+    padding-top: 8px;
 }
 
 .toc-sidebar {
