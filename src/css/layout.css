@@ -27,7 +27,10 @@ th {
 .homepage-header {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+}
+
+.homepage-header > h1 {
+    padding-bottom: 8px;
 }
 
 .upper-text {
