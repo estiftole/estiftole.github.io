@@ -335,11 +335,12 @@ button {
     font-size: 17px;
 }
 
- .home-bio {
-     display: flex;
-     flex-direction: column;
-     gap: 20px;
- }
+.home-bio {
+    display: flex;
+    max-width: 40%;
+    flex-direction: column;
+    gap: 20px;
+}
 
 .post-link {
     font-weight: 500;
@@ -510,6 +511,10 @@ h1 {
 
     .yt-link {
         height: 300px;
+    }
+
+    .home-bio {
+    max-width: 80%;
     }
 }
 
