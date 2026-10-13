@@ -20,19 +20,23 @@
     <div class="hero-container">
         <header class="mainpost-header top-head homepage-header">
             <h1 class="zero-margin upper-text">Estifanos Tolemariam</h1>
-            <div class="post-desc home-content mute">
-                Third year undergrad SWE @ AAU
-            </div>
-            <div class="post-desc home-content mute">
-                Interested in Machine Learning
-            </div>
-            <div class="post-meta">
-                {% if date %}
-                <time>{{ date | numericDate }}</time>
-                {% endif %}
-                {% if code %}
-                    <a href={{code}} class="casual-btn upper-text">Code</a>
-                {% endif %}
+            <div class="home-bio">
+                <div>
+                    <div class="post-desc home-content mute">
+                        Third year undergrad SWE @ AAU
+                    </div>
+                    <div class="post-desc home-content mute">
+                        Interested in Machine Learning
+                    </div>
+                </div>
+                <div>
+                    <div class="post-desc home-content mute">
+                        Working on world models, program synthesis,
+                    </div>
+                    <div class="post-desc home-content mute">
+                        neurosymbolic AI, and other cool stuff
+                    </div>
+                </div>
             </div>
         </header>
     </div>

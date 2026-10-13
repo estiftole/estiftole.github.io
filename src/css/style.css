@@ -335,6 +335,12 @@ button {
     font-size: 17px;
 }
 
+ .home-bio {
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+ }
+
 .post-link {
     font-weight: 500;
 
