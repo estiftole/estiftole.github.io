@@ -337,9 +337,7 @@ button {
 
 .home-bio {
     display: flex;
-    max-width: 40%;
     flex-direction: column;
-    gap: 20px;
 }
 
 .post-link {
@@ -514,7 +512,7 @@ h1 {
     }
 
     .home-bio {
-    max-width: 80%;
+        gap: 10px
     }
 }
 
