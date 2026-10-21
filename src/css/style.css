@@ -418,6 +418,10 @@ p .katex-display .katex {
   margin-bottom: 0;
 }
 
+.newline {
+    margin: 20px;
+}
+
 img, video {
     height: 100%;
   width: 100%;

@@ -72,9 +72,7 @@ $$
 $$
 where $H$ and $\tilde{H}$ are positive and negative sample losses respectively:
 $$
-H = \frac{1}{K}\overset{K}{\underset{k=1}{\sum}} d(z_t^k + T(z_t^k, a_t^k), z_{t+1}^k)
-$$
-$$
+H = \frac{1}{K}\overset{K}{\underset{k=1}{\sum}} d(z_t^k + T(z_t^k, a_t^k), z_{t+1}^k) \\
 \tilde{H} = \frac{1}{K}\overset{K}{\underset{k=1}{\sum}} d( \tilde{z}_{t}^k, z_{t+1}^k)
 $$
 
