@@ -45,9 +45,9 @@ layout: base.njk
       const images = document.querySelectorAll('article img, .container img');
       const body = document.querySelector('.post-body');
       const toc = document.getElementById('toc-nav');
-      const headings = body.querySelectorAll('h2');
+      const headings = body.querySelectorAll('h1');
 
-      // Hide the sidebar entirely if there are no H2 headings in the post
+      // Hide the sidebar entirely if there are no headings in the post
       if (headings.length === 0) {
           document.querySelector('.post-sidebar').style.display = 'none';
           return;
