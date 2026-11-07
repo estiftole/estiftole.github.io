@@ -136,14 +136,14 @@ html {
   overflow-y: auto;
 }
 
-.post-body h2 {
+.post-body h1 {
   scroll-margin-top: 90px;
   font-weight: 500;
   font-size: 30px;
   margin: 17px 0;
 }
 
-.post-body h3 {
+.post-body h2 {
     font-weight: 600;
     font-size: 22px;
     margin: 17px 0;

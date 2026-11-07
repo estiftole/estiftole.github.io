@@ -447,10 +447,6 @@ img, video {
     padding-top: 10vh;
 }
 
-h1 {
-    font-size: 28px;
-}
-
 .subheader-big {
     font-weight: 500;
     width: var(--display-width);

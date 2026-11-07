@@ -4,18 +4,18 @@ title: "Contrastive Learning of Structured World Models"
 date: 2026-08-11
 description: 'Analysis and reproduction of the paper titled "Contrastive Learning of Structured World Models" and the C-SWM as a method for learning abstract state representations from observations alone.'    
 code: "https://github.com/estiftole/c-swm"
-banner: "/assets/images/c-swm/c-swm simplified.png"
+banner: "/assets/images/c-swm/cswm_banner.jpeg"
 summary: "I reimplemented the C-SWM architecture from the Contrastively-trained Structured World Models paper and evaluated it on Breakout and Centipede."
 ---
 
-## Introduction
+# Introduction
 A world model is an internal representation of the environment that allows you to navigate and achieve goals. It is a crucial aspect of human cognition, and has inspired a wide array of works exploring how to build systems with this ability.  
 
 Learning the right latent space is the most challenging part of building world models. Methods that rely on visual reconstruction as the primarily objective (e.g. variational autoencoders) run the risk of learning visual features that aren't relevant for abstract reasoning. Predicting the world at pixel-level detail is wasteful. 
 
 Several solutions have been proposed to tackle this problem. The paper titled <a class="reference" href="https://arxiv.org/abs/1911.12247">Contrastive Learning of Structured World Models</a> is one such example. It introduces a class of models called Contrastively-trained Structured World Models (C-SWM) that learn abstract object-factorized state representations to model the environment. 
 
-## Intuition
+# Intuition
 Every environment is made of objects. Therefore, the state of a given environment can be defined compositionally as the states of the objects within it.
 
 The state $s$ of the environment at time $t$ can be expressed as:
@@ -25,7 +25,7 @@ Where $s_t^{(k)}$ is the state of object $k$ at $t$.
 Similarily, the latent representation of the state can be expressed as:
 $$z_t = \{z_t^{(1)}, z_t^{(2)}, \dots, z_t^{(K)}\}$$
 
-## Architecture
+# Architecture
 Here's a simplified diagram of the C-SWM architecture:  
 
 <img src="{{ '/assets/images/c-swm/c-swm simplified.png' | url }}" alt="c-swm simplified" class="post-asset">
@@ -47,16 +47,16 @@ $$
 $$
 where $d(z_t + \Delta z_t, z_{t+1})$ is the difference between the predicted and actual next states, $d(\tilde{z}_{t}, z_{t+1})$ is the difference between a negative sample and actual next state, and $\gamma$ is a hyperparameter that represents the minimum acceptable distance between two states that are not alike.
 
-### Encoder
+## Encoder
 The encoder module is composed of a CNN-based model for object extraction $E_{ext}$ and an MLP-based object encoder $E_{enc}$.
 The object extractor takes an image as input and returns $K$ feature maps where each feature map $m_t^k$ can be interpreted as belonging to one particular object. $E_{enc}$ then takes one feature map $m_t^k$ at a time and returns the corresponding abstract state representation $z_t^k$.  
-### Transition Model
+## Transition Model
 The transition model $T$ takes the latent state $z_t$ and action $a_t$, and returns the change in the state $\Delta z_t$:
 $$
 \Delta z_t = T(z_t, a_t) = GNN(\{(z_t, a_t)\}_{k=1}^K)
 $$
 Implementing the transition model as a GNN provides permutation invariance (i.e. the order of objects doesn't matter, which would be a problem when using a standard MLP), and is a natural choice when modeling the environment through local interactions between objects.  
-### GNN
+## GNN
 In the GNN, an edge function $f_{edge}$ computes directional messages (representing interactions) between every pair of object slots $i$ and $j$.
 $$
 e_t^{(i,j)} = f_{edge}\left(\left[z_t^i, z_t^j\right]\right)
@@ -88,7 +88,7 @@ This loss function teaches the model to do three things:
 
 The authors published the <a class="reference" href="https://github.com/tkipf/c-swm">code of their implementation</a> along with their paper. Unfortunately, their implementation relies on now out-dated packages and functions (such as the `gym` package which is now `gymnasium`, with the atari games being branched off in another package `ale-py`), so I had to do some refactoring to get it to run in the modern ecosystem. You can find my updated implementation <a class="reference" href="https://github.com/estiftole/c-swm">in this repo.</a>
  
-## Evaluation
+# Evaluation
 The authors of the paper evaluated this architecture on two grid world environments, two atari games (pong and space invaders), and 3-body physics simulation.
 
 - **Hits@1 (Hits at Rank 1)**: The percentage of evaluation samples where the ground-truth target state ranks among the top $K$ nearest neighbors to the predicted state. $K$ here is 1, so it measures strict accuracy.  
@@ -106,7 +106,7 @@ For my evaluations, I compared the C-SWM to a version of the model that was trai
 
 Results mimic that of the original paper, with the C-SWM model performing better than the reconstruction-based version.
 
-## Limitations
+# Limitations
 The authors mentioned the architecture struggled with identifying multiple instances of the same object (instance disambiguation), and the fact that the formulation doesn’t take into account environments affected by randomness/stochasticity. 
 
 The most significant limitation in my eyes is the fact that it requires manually defining the number of object slots. Performance seems to vary a lot with the number of $K$ slots you define when building the model.  
@@ -118,7 +118,7 @@ The authors describe a potential solution (iterative object encoding) to overcom
 
 They left it for future work, and so I decided to do the same. But I’ll be sure to explore it in the future. I think it would be interesting to see if it would work.
 
-## Final Thoughts
+# Final Thoughts
 2019 is ancient news in this field, but the ideas behind C-SWMs, and especially SWMs, are more relevant than ever. Model-based methods have several advantages over model-free ones, and they provide superior generalization to novel scenes. But the most exciting prospect in my opinion is that of **analogical reasoning**. 
 
 Similar to states in SWMs, analogies are defined by their members. It may be possible to build a system that uses a SWM to draw analogies between scenarios that seem very different on the surface but share the same underlying dynamics. 
