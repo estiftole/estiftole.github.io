@@ -333,7 +333,7 @@ button {
 }
 
 .post-desc {
-    font-size: 17px;
+    font-size: 16px;
 }
 
 .home-bio {
@@ -444,7 +444,7 @@ img, video {
     max-height: 50vh;
 }
 .top-head {
-    padding-top: 10vh;
+    padding-top: 15vh;
 }
 
 .subheader-big {

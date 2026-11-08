@@ -24,15 +24,6 @@ th {
     width: var(--display-width);
 }
 
-.homepage-header {
-    display: flex;
-    flex-direction: column;
-}
-
-.homepage-header > h1 {
-    padding-bottom: 8px;
-}
-
 .upper-text {
     text-transform: uppercase;
 }
